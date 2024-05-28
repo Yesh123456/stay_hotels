@@ -1,4 +1,8 @@
+/** @type {import('tailwindcss').Config} */
+
 const defaultTheme = require('tailwindcss/defaultTheme')
+
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
@@ -13,6 +17,11 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    colors: {
+      DEFAULT: '#8AB4FB',
+      DARK: '#488AFB',
+      // ...
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),
