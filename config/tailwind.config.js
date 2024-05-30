@@ -18,9 +18,11 @@ module.exports = {
       },
     },
     colors: {
-      DEFAULT: '#8AB4FB',
-      DARK: '#488AFB',
-      // ...
+      ...colors,
+      primary: {
+        DEFAULT: '#8AB4FB',
+        DARK: '#488AFB',
+      }
     }
   },
   plugins: [
