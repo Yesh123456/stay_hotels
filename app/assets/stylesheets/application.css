@@ -13,3 +13,76 @@
  *= require_tree .
  *= require_self
  */
+.swiper {
+	width: 100%;
+	aspect-ratio: 1/1.2;
+}
+
+.swiper:hover{
+	.swiper-button-next{
+		display: block !important;
+	}
+	.swiper-button-prev{
+		display: block !important;
+	}
+}
+
+.swiper-pagination {
+	.swiper-pagination-bullet {
+		background-color: white;
+	}
+}
+
+.swiper-button-prev {
+	display: none !important;
+	width: 28px !important;
+	height: 28px !important;
+	border-radius: 50%;
+	border-width: 4px;
+	border-color: white;
+	background-image: url(/assets/left-arrow.svg) !important;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.swiper-button-next {
+	display: none !important;
+	width: 28px !important;
+	height: 28px !important;
+	border-radius: 50%;
+	border-width: 4px;
+	border-color: white;
+	background-image: url(/assets/right-arrow.svg) !important;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: center;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	animation-delay: 2s;	
+}
+
+.swiper-button-next::after {
+	content: '' !important;
+}
+
+.swiper-button-prev::after {
+	content: '' !important;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .w-full.lg\:w-1\/2.xl\:w-1\/4 {
+    display: flex;
+    height: auto;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .swiper {
+    aspect-ratio: unset;
+  }
+}

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 3b56a737e4c8ad207305c25f92a43fd3ce5ac941
+  branch: main
+  specs:
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -97,10 +105,15 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.12.0)
+    ffi (1.17.1-x86_64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
+    image_processing (1.13.0)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -112,6 +125,7 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    logger (1.6.5)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -121,8 +135,18 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
+    mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.23.0)
+    monetize (1.13.0)
+      money (~> 6.12)
+    money (6.19.0)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.15.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9)
+      money (~> 6.13)
+      railties (>= 3.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.11)
@@ -195,6 +219,9 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    ruby-vips (2.2.3)
+      ffi (~> 1.12)
+      logger
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -238,8 +265,11 @@ DEPENDENCIES
   bootsnap
   debug
   devise (~> 4.9, >= 4.9.2)
+  faker!
+  image_processing (>= 1.2)
   importmap-rails
   jbuilder
+  money-rails (~> 1.12)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)

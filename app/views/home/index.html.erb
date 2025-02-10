@@ -1,61 +1,65 @@
-<% @properties.each do |property| %>
-    <div class="container mx-auto p-4 md:p-10 antialiased ">
-        <div
-            class=" flex flex-wrap md:flex-nowrap shadow-lg mx-auto max-w-6xl group cursor-pointer transform duration-500 hover:-translate-y-1">
-            <img class="w-full max-h-[400px] object-cover md:w-52" src="https://i.ibb.co/Kr4b0zJ/152013403-10158311889099633-8423107287930246533-o.jpg" alt="">
-            <div style="flex-grow: 1;">
-                <div class="p-3 pb-6">
-                    <h1 class="text-2xl font-semibold text-gray-600 mt-4">
-                        <%= property.name %>
-                    </h1>
-                    <h2 class="text-gray-600">
-                        <%= "#{property.city} | #{property.state} | #{property.country}" %>
-                    </h2>
-                    <p class="text-l text-gray-400 mt-2 leading-relaxed">
-                        <%= property.description %>
-                    </p>
-                </div>
-                <div class="bg-blue-50 p-5">
-                    <div class="sm:flex sm:justify-between">
-                        <div>
-                            <div class="flex items-center">
-                                <div class="flex items-center">
-                                    <svg class="w-5 h-5 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg class="w-5 h-5 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg class="w-5 h-5 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg class="w-5 h-5 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg class="w-5 h-5 text-gray-300 me-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <p class="ms-1 text-base font-bold text-black-500 dark:text-gray-600">4.95</p>
-                                    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">out of</p>
-                                    <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">5</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-purple-700 hover:bg-purple-600 font-bold text-white md:text-lg rounded-lg shadow-md"> Book Hotel </button>
-                    </div>
-                    <div class="mt-3 text-gray-600 text-sm md:text-sm" style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Free Wifi</span>
-                        <span class="bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Express Check-In</span>
-                        <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Breakfast</span>
-                        <span class="bg-orange-100 text-orange-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-orange-900 dark:text-orange-300">Bike Rental</span>
-                        <span class="bg-indigo-100 text-indigo-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Parking</span>
-                        <span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">Free Pool Access</span>
-                    </div>
-                    <div class="mt-3 text-gray-600 text-sm md:text-sm">
-                        *Places to visit: Marine Drive, Gateway of India &amp; Flora Fountain
-                    </div>
-                </div>
-            </div>
+<% @properties.each_with_index do |property| %>
+  <div class="container mx-auto p-4 md:p-10 antialiased">
+    <div class="flex flex-wrap md:flex-nowrap shadow-lg mx-auto max-w-6xl cursor-pointer transform duration-500 hover:-translate-y-1">
+      <div class="w-full lg:w-1/2 xl:w-1/4">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <% property.images.each do |image| %>
+                <%= image_tag image, class: "swiper-slide w-full object-cover rounded-lg aspect-[4/3]" %>
+            <% end %>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
+      </div>
+      <div class="flex-grow flex flex-col justify-between">
+        <div class="p-3 pb-1">
+          <h1 class="text-2xl font-semibold text-gray-600 mt-4">
+            <%= property.name %>
+          </h1>
+          <h2 class="text-gray-600">
+            <%= "#{property.city} | #{property.state} | #{property.country}" %>
+          </h2>
+          <p class="text-l text-gray-400 mt-2 leading-relaxed">
+            <%= property.description %>
+          </p>
+        </div>
+
+        <div class="bg-blue-50 p-5">
+          <div class="flex justify-between">
+            <div class="flex items-center">
+              <% 4.times do %>
+                <svg class="w-5 h-5 text-yellow-300 me-1" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+              <% end %>
+              <svg class="w-5 h-5 text-gray-300 me-1 dark:text-gray-500" fill="currentColor" viewBox="0 0 22 20">
+                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <p class="ms-1 text-base font-bold text-black-500 dark:text-gray-600">4.4</p>
+              <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">(100)</p>
+            </div>
+            <button class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-purple-700 hover:bg-purple-600 font-bold text-white md:text-lg rounded-lg shadow-md">
+              <%= "#{humanized_money_with_symbol(property.price)}" %> <span> / day</span>
+            </button>
+          </div>
+          
+          <div class="mt-3 text-gray-600 text-sm md:text-sm flex flex-wrap gap-2">
+            <div class="mt-3 text-gray-600 text-sm md:text-sm flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Free Wifi</span>
+              <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Express Check-In</span>
+              <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Breakfast</span>
+              <span class="bg-orange-100 text-orange-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Bike Rental</span>
+              <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Parking</span>
+              <span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Free Pool Access</span>
+            </div>
+          </div>
+          <div class="mt-3 text-gray-600 text-sm md:text-sm">
+            *Places to visit: Marine Drive, Gateway of India &amp; Flora Fountain
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 <% end %>

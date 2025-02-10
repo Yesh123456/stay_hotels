@@ -62,5 +62,10 @@ group :development do
   # gem "spring"
 end
 
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+
+gem 'money-rails', '~> 1.12'
+
+gem "image_processing", ">= 1.2"
 
 gem "tailwindcss-rails", "~> 2.6"

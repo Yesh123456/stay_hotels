@@ -7,12 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
 
-Property.find_or_create_by!(name: 'Taj Hotels',
-	long_title: 'Taj Hotels is the best',
-	description: 'Taj Hotels is the best',
-	address_line_1: 'Florida Road',
-	address_line_2: 'New Jersey Lane',
-	city: 'New York',
-	state: 'New York',
-	country: 'United States')
+5.times do |i|
+  props = Property.create!(
+    name: Faker::Company.unique.name,
+    description: Faker::Lorem.unique.sentence(word_count: 20),
+    address_line_1: Faker::Address.street_address,
+    address_line_2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country,
+    price: Money.from_amount(Faker::Number.between(from: 50.0, to: 100.0), 'USD'),
+  )
+  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i}.jpeg")), filename: props.name.to_s)
+  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i+6}.jpeg")), filename: props.name.to_s)
+end
