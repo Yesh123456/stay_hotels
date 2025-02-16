@@ -9,6 +9,11 @@
 #   end
 require 'faker'
 
+user =  User.create!(
+	email: "test1@gmail.com",
+	password: "password12345"
+)
+
 5.times do |i|
   props = Property.create!(
     name: Faker::Company.unique.name,
@@ -22,4 +27,18 @@ require 'faker'
   )
   props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i}.jpeg")), filename: props.name.to_s)
   props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i+6}.jpeg")), filename: props.name.to_s)
+
+  ((6..10).to_a.sample).times do
+  	Review.create!(
+	  	content: Faker::Lorem.unique.sentence(word_count: 10),
+	  	location_rating: Faker::Number.between(from: 5, to: 10),
+	  	service_rating: Faker::Number.between(from: 5, to: 10),
+	  	room_comfort_quality_rating: Faker::Number.between(from: 5, to: 10),
+	  	cleanliness_rating: Faker::Number.between(from: 5, to: 10),
+	  	facilities_rating: Faker::Number.between(from: 5, to: 10),
+	  	value_for_money_rating: Faker::Number.between(from: 5, to: 10),
+	  	property: props,
+	  	user: user
+  	)
+  end
 end

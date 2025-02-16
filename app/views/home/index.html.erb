@@ -29,16 +29,35 @@
         <div class="bg-blue-50 p-5">
           <div class="flex justify-between">
             <div class="flex items-center">
-              <% 4.times do %>
+              <% full_stars = (property.avg_final_rating / 2).floor %>
+              <% half_star = (property.avg_final_rating % 2) >= 1 %>
+              <% empty_stars = 5 - (full_stars + (half_star ? 1 : 0)) %>
+
+              <% full_stars.times do %>
                 <svg class="w-5 h-5 text-yellow-300 me-1" fill="currentColor" viewBox="0 0 22 20">
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
                 </svg>
               <% end %>
-              <svg class="w-5 h-5 text-gray-300 me-1 dark:text-gray-500" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <p class="ms-1 text-base font-bold text-black-500 dark:text-gray-600">4.4</p>
-              <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">(100)</p>
+
+              <% if half_star %>
+                <svg class="w-5 h-5 text-yellow-300 me-1" fill="currentColor" viewBox="0 0 22 20">
+                  <defs>
+                    <linearGradient id="half-star">
+                      <stop offset="50%" stop-color="currentColor"/>
+                      <stop offset="50%" stop-color="gray"/>
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(#half-star)" d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+              <% end %>
+
+              <% empty_stars.times do %>
+                <svg class="w-5 h-5 text-gray-400 me-1 dark:text-gray-300" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+              <% end %>
+              <p class="ms-1 text-base font-bold text-black-500 dark:text-gray-600"><%= property.avg_final_rating.to_f.round(2) %></p>
+              <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">(<%= property.reviews_count %>)</p>
             </div>
             <button class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-purple-700 hover:bg-purple-600 font-bold text-white md:text-lg rounded-lg shadow-md">
               <%= "#{humanized_money_with_symbol(property.price)}" %> <span> / day</span>
