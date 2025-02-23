@@ -9,6 +9,7 @@ STAY HOTELS
 6) Integrated Faker and Money Gem for property model with validations
 7) Integrated Active Storage for images property with improved frontend page
 8) Integrated Reviews Model associated with Property Model and also added multiple categories and showed on final averages of each property reviews.
+9) Integrated Favorites Model with Property Model and User Model and functionality to mark favorites property
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

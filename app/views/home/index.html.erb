@@ -3,6 +3,19 @@
     <div class="flex flex-wrap md:flex-nowrap shadow-lg mx-auto max-w-6xl cursor-pointer transform duration-500 hover:-translate-y-1">
       <div class="w-full lg:w-1/2 xl:w-1/4">
         <div class="swiper">
+          <div class="absolute z-10 right-0 top-0 m-4 <%= property.favorite_by?(current_user) ? 'fill-orange-600' : 'fill-yellow-100' %>">
+            <svg class="block h-6 w-6" style="overflow: visible;" 
+            data-controller="favorite" 
+            data-action="click->favorite#update_favorite_list" 
+            data-status="<%= property.favorite_by?(current_user) %>"  
+            data-user-logged-in="<%= user_signed_in? %>"
+            data-property-id="<%= property.id %>"
+            data-user-id="<%= current_user&.id %>"
+            data-favorite-id="<%= property.favorite_by?(current_user) ? property.favorites.find_by(user_id: current_user).id : nil %>"
+            height="24px" width="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
           <div class="swiper-wrapper">
             <% property.images.each do |image| %>
                 <%= image_tag image, class: "swiper-slide w-full object-cover rounded-lg aspect-[4/3]" %>

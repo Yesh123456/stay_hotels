@@ -69,3 +69,5 @@ gem 'money-rails', '~> 1.12'
 gem "image_processing", ">= 1.2"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem 'byebug'
