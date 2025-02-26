@@ -14,10 +14,10 @@ user =  User.create!(
 	password: "password12345"
 )
 
-5.times do |i|
+6.times do |i|
   props = Property.create!(
     name: Faker::Company.unique.name,
-    description: Faker::Lorem.unique.sentence(word_count: 20),
+    description: Faker::Lorem.sentence(word_count: 30),
     address_line_1: Faker::Address.street_address,
     address_line_2: Faker::Address.secondary_address,
     city: Faker::Address.city,
@@ -25,20 +25,30 @@ user =  User.create!(
     country: Faker::Address.country,
     price: Money.from_amount(Faker::Number.between(from: 50.0, to: 100.0), 'USD'),
   )
-  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i}.jpeg")), filename: props.name.to_s)
-  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i+6}.jpeg")), filename: props.name.to_s)
+  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i}.jpg")), filename: props.name.to_s)
+  props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i+6}.jpg")), filename: props.name.to_s)
 
   ((6..10).to_a.sample).times do
   	Review.create!(
-	  	content: Faker::Lorem.unique.sentence(word_count: 10),
-	  	location_rating: Faker::Number.between(from: 5, to: 10),
-	  	service_rating: Faker::Number.between(from: 5, to: 10),
-	  	room_comfort_quality_rating: Faker::Number.between(from: 5, to: 10),
-	  	cleanliness_rating: Faker::Number.between(from: 5, to: 10),
-	  	facilities_rating: Faker::Number.between(from: 5, to: 10),
-	  	value_for_money_rating: Faker::Number.between(from: 5, to: 10),
+	  	content: Faker::Lorem.sentence(word_count: 20),
+			location_rating: rand(5..10),
+			service_rating: rand(5..10),
+			room_comfort_quality_rating: rand(5..10),
+			cleanliness_rating: rand(5..10),
+			facilities_rating: rand(5..10),
+			value_for_money_rating: rand(5..10),
 	  	property: props,
 	  	user: user
   	)
   end
+
+  check_in = Faker::Date.forward(days: rand(1..30))
+  check_out = check_in + rand(2..7).days
+  reservation = Reservation.create!(
+    user: user,
+    property: props,
+    check_in_date: check_in,
+    check_out_date: check_out
+  )
+  puts "✅ Reservation and favorites created for #{props.name} from #{check_in} to #{check_out} by #{user.email}"
 end
