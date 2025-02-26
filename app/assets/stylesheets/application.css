@@ -14,8 +14,7 @@
  *= require_self
  */
 .swiper {
-	width: 100%;
-	aspect-ratio: 1/1.2;
+	height: 100%;
 }
 
 .swiper:hover{
@@ -74,6 +73,19 @@
 	content: '' !important;
 }
 
+.ai-style-change-1 {
+  .flex.justify-between& {
+      flex-direction: column;
+  }
+}
+
+@media (min-width: 1024px) {
+  .w-full.lg:w-1/2 {
+    display: flex;
+    height: auto;
+    width: 100%;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) {
   .w-full.lg\:w-1\/2.xl\:w-1\/4 {
     display: flex;
