@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :favorites, only: [:create, :destroy]
   end
+
+  resources :properties, only: [:show]
 end
