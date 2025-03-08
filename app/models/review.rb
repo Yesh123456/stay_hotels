@@ -25,4 +25,8 @@ class Review < ApplicationRecord
     property.update_average_final_rating
   end
 
+  def reviews_count
+    self.reviews.count
+  end
+
 end

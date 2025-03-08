@@ -1,0 +1,47 @@
+<% total_reviews_count = properties.reviews_count %>
+<div class="container mx-auto px4 py-8">
+  <div class="w-full px-4">
+    <div class="max-w-10-xl mx-auto p-4 bg-white shadow-lg rounded-lg">
+
+      <h1 class="text-xl font-semibold">Reviews of <%= properties.name %></h1>
+      <div class="flex items-center mt-6">
+        <div class="bg-blue-600 text-white text-3xl font-bold px-4 py-2 rounded"><%= properties.avg_final_rating.to_f.round(2) %></div>
+        <div class="ml-6 w-full">
+          <%= display_property_review_averages(properties.reviews) %>
+        </div>
+      </div>
+
+      <div data-controller="reviews">
+        <div class="mt-6 p-6 flex flex-col items-center">
+          <span>Showing <%= total_reviews_count %> comments</span>
+        </div>
+        <% properties.reviews.each_with_index do |prop_reviews, index| %>
+          <div class="border-b pb-4 mb-4 <%= 'hidden' if index >= 2 %>" data-reviews-target="review">
+            <div class="flex">
+              <div class="w-1/3">
+                <p class="text-blue-600 font-bold"><%= final_rating_label(prop_reviews.final_rating) %></p>
+                <p class="font-bold">Anonymous</p>
+              </div>
+              <div class="w-2/3">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                  <p class="text-gray-700 text-sm mt-2">
+                    <%= prop_reviews.content %>
+                  </p>
+                  <p class="text-gray-500 text-xs mt-2">Reviewed <%= prop_reviews.created_at.strftime("%B %d, %Y") %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% if total_reviews_count > 2 %>
+          <div class="text-center mt-4">
+            <button data-action="click->reviews#toggle" class="bg-blue-500 text-white px-4 py-2 rounded">
+              Show More
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
