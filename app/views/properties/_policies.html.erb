@@ -1,0 +1,85 @@
+<div class="container mx-auto px4 py-8">
+  <div class="w-full px-4">
+    <div class="max-w-10-xl mx-auto p-4 bg-white shadow-lg rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">Policies of <%= properties.name %></h2>
+        
+        <h3 class="text-lg font-semibold">Children and extra beds</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6">
+          <li>Extra beds are dependent on the room you choose. Please check the individual room capacity for more details.</li>
+          <li>All children are welcome.</li>
+        </ul>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div class="p-4 border rounded-lg bg-white">
+            <h4 class="font-semibold flex items-center">
+              <span class="mr-2">👶</span> Infant 0-2 year(s)
+            </h4>
+            <p class="font-bold">Stay for free if using existing bedding.</p>
+            <p class="text-sm text-gray-600">Baby cot/crib may be requested directly from the property.</p>
+          </div>
+
+          <div class="p-4 border rounded-lg bg-white">
+            <h4 class="font-semibold flex items-center">
+              <span class="mr-2">🧒</span> Children 3-12 year(s)
+            </h4>
+            <p class="font-bold">Must use an extra bed</p>
+            <p class="text-sm text-gray-600">If you need an extra bed, it will incur an additional charge.</p>
+          </div>
+
+          <div class="p-4 border rounded-lg bg-white">
+            <h4 class="font-semibold flex items-center">
+              <span class="mr-2">🧑</span> Guests 13 years and older are considered as adults
+            </h4>
+            <p class="text-sm text-gray-600">Must use an extra bed which will incur an additional charge.</p>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-semibold">Others</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6">
+          <li>Kindly note that all guests checking in at the hotel will require a Photo ID and Address Proof at check-in.</li>
+          <li>Airport transfer is available at no additional charge. In order to reserve the transfer, please inform the property of your arrival details at least 2 days prior to arrival.</li>
+          <li>When booking more than 5 rooms, different policies and additional supplements may apply.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold mb-4">Some helpful facts</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 border rounded-lg shadow-sm bg-white">
+            <h3 class="text-lg font-semibold mb-3">Check-in/Check-out</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>🕛 <span class="font-medium">Check-in from:</span> <span class="font-semibold"><%= properties.additional_attributes_with_check_in_check_out["check_in_from"] %></span></li>
+              <li>🕛 <span class="font-medium">Check-out until:</span> <span class="font-semibold"><%= properties.additional_attributes_with_check_in_check_out["check_out_until"] %></span></li>
+              <li>🕐 <span class="font-medium">Reception open until:</span> <span class="font-semibold"><%= properties.additional_attributes_with_check_in_check_out["reception_open_until"] %></span></li>
+            </ul>
+          </div>
+
+          <!-- Getting Around & Extras Section -->
+          <div class="p-5 border rounded-lg shadow-sm bg-white">
+            <h3 class="text-lg font-semibold mb-3">Getting Around</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>📍 <span class="font-medium">Distance from city center:</span> <span class="font-semibold"><%= properties.additional_attributes_with_getting_around["distance_from_city_center"] %></span></li>
+              <li>⏳ <span class="font-medium">Travel time to airport:</span> <span class="font-semibold"><%= properties.additional_attributes_with_getting_around["travel_time_to_airport"] %></span></li>
+              <li>🚖 <span class="font-medium">Airport transfer fee:</span> <span class="font-semibold"><%= properties.additional_attributes_with_getting_around["airport_transfer_fee"] %></span></li>
+            </ul>
+
+            <h3 class="text-lg font-semibold mt-6 mb-3">Extras</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>🌐 <span class="font-medium">Daily Internet/Wi-Fi fee:</span> <span class="font-semibold"><%= properties.additional_attributes_with_extras["daily_internet_fee"] %></span></li>
+            </ul>
+          </div>
+
+          <!-- The Property Section -->
+          <div class="p-5 border rounded-lg shadow-sm bg-white">
+            <h3 class="text-lg font-semibold mb-3">The Property</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>🏡 <span class="font-medium">Year property opened:</span> <span class="font-semibold"><%= properties.additional_attributes_with_the_property["year_opened"] %></span></li>
+              <li>🏢 <span class="font-medium">Number of floors:</span> <span class="font-semibold"><%= properties.additional_attributes_with_the_property["number_of_floors"] %></span></li>
+              <li>🔌 <span class="font-medium">Room voltage:</span> <span class="font-semibold"><%= properties.additional_attributes_with_the_property["room_voltage"] %></span></li>
+              <li>🛏️ <span class="font-medium">Number of rooms:</span> <span class="font-semibold"><%= properties.additional_attributes_with_the_property["number_of_rooms"] %></span></li>
+              <li>🍽️ <span class="font-medium">Number of restaurants:</span> <span class="font-semibold"><%= properties.additional_attributes_with_the_property["number_of_restaurants"] %></span></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

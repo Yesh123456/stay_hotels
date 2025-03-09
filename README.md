@@ -11,6 +11,7 @@ STAY HOTELS
 8) Integrated Reviews Model associated with Property Model and also added multiple categories and showed on final averages of each property reviews.
 9) Integrated Favorites Model with Property Model and User Model and functionality to mark favorites property.
 10)Integrated Reservations Model for booking properties as per availabilites.
+11)Integrated Policies Model and Facility Model for properties to show.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

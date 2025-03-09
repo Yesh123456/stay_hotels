@@ -24,6 +24,12 @@ user =  User.create!(
     state: Faker::Address.state,
     country: Faker::Address.country,
     price: Money.from_amount(Faker::Number.between(from: 50.0, to: 100.0), 'USD'),
+    additional_attributes:{
+	    check_in_check_out: { check_in_from: "12:00 PM", check_out_until: "11:00 AM", reception_open_until: "11:59 PM"},
+	    getting_around: { distance_from_city_center: "1.5 Km", travel_time_to_airport: "5 minutes", airport_transfer_fee: "10 USD"},
+	    extras: { daily_internet_fee: "5 USD" },
+	    the_property: { year_opened: Faker::Date.rand_in_range(1970,2020), number_of_floors: Faker::Date.rand_in_range(2,5), room_voltage: 220, number_of_rooms: Faker::Date.rand_in_range(20,42), number_of_restaurants: 1 }
+	  }
   )
   props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i}.jpg")), filename: props.name.to_s)
   props.images.attach(io: File.open(Rails.root.join("db/images/property_#{i+6}.jpg")), filename: props.name.to_s)
@@ -50,5 +56,16 @@ user =  User.create!(
     check_in_date: check_in,
     check_out_date: check_out
   )
+  facility = Facility.create!(
+	  property_id: props.id,
+	  accessibility: ["Wheelchair accessible", "Elevator"],
+	  internet_access: ["Free Wi-Fi in all rooms", "Wi-Fi in public areas"],
+	  cleanliness_and_safety: ["Daily disinfection", "Hand sanitizer provided"],
+	  food_and_dinning: ["Restaurant", "Room service"],
+	  access: ["24-hour front desk", "Security"],
+	  services_and_conveniences: ["Luggage storage", "Laundry service"],
+	  getting_around: ["Car park", "Airport transfer"]
+	)
+
   puts "✅ Reservation and favorites created for #{props.name} from #{check_in} to #{check_out} by #{user.email}"
 end
